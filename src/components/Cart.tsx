@@ -29,7 +29,7 @@ function Cart() {
       setCartItems((prev) => [...prev, product]);
     };
     setCartItems([]);
-    items.forEach((item) => {
+    items?.forEach((item) => {
       fetchProduct(item.id);
     });
   }, [items]);
