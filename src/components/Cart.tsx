@@ -41,7 +41,7 @@ function Cart() {
   useLayoutEffect(() => {
     const cart = getItem();
     setCartItems(cart);
-    cart.forEach((item: Product) => {
+    cart?.forEach((item: Product) => {
       dispatch(addItemToCart(item.id));
     });
     const handleClickOutside = (e: MouseEvent) => {
