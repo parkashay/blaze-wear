@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "BlazeWear",
   description: "Your fashion all at one place.",
+  openGraph: {
+    images: ['/cover.jpg']
+  }
 };
 
 export default function RootLayout({
