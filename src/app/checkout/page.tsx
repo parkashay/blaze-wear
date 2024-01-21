@@ -5,7 +5,6 @@ import React, {
   FormEvent,
   useCallback,
   useEffect,
-  useMemo,
   useState,
 } from "react";
 import { Product } from "../product/[id]/page";

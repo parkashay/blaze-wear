@@ -42,7 +42,7 @@ function ProductDetails(product: Product) {
           <div>
             <button
               onClick={() => router.push("/checkout")}
-              className="flex items-center gap-2 text-xs py-2 px-4 rounded-lg bg-accent  hover:bg-accent/90 text-white"
+              className="flex items-center gap-2 my-3 py-2 px-4 rounded-lg border-2 text-black hover:bg-accent/30"
             >
               Proceed to Checkout <MdArrowRightAlt />
             </button>

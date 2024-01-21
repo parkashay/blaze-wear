@@ -64,7 +64,7 @@ const Modal = () => {
 
               <div className="flex-1 flex flex-col">
                 <div className="flex-1">
-                  <h4 className="font-semibold text-primary">{product?.title}</h4>
+                  <h4 className="font-semibold text-primary text-2xl">{product?.title}</h4>
                   <p className="font-medium text-sm">${product?.price}</p>
 
                   <div className="flex items-center text-sm my-4">
@@ -90,14 +90,14 @@ const Modal = () => {
                 <div className="flex  items-center justify-center space-x-5 text-sm">
                   <button
                     onClick={() => handleAddToCart(product!.id)}
-                    className="flex items-center gap-2 border bg-button rounded-lg py-1 px-4 hover:bg-accent text-white"
+                    className="flex items-center gap-2 border bg-button rounded-lg py-2 px-4 hover:bg-accent text-white"
                   >
                     {" "}
                     <MdShoppingCart /> Add to Cart
                   </button>
                   <button
                     onClick={() => window.location.reload()}
-                    className="flex items-center gap-2 border border-primary rounded-lg py-1 px-4 hover:bg-accent hover:text-white"
+                    className="flex items-center gap-2 border border-primary rounded-lg py-2 px-4 hover:bg-accent hover:text-white"
                   >
                     <MdLink /> View full details
                   </button>
