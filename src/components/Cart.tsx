@@ -39,7 +39,7 @@ function Cart() {
   }, [cartItems]);
 
   useLayoutEffect(() => {
-    const cart = getItem();
+    const cart = getItem() || [];
     setCartItems(cart);
     cart?.forEach((item: Product) => {
       dispatch(addItemToCart(item.id));
