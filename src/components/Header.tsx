@@ -15,7 +15,7 @@ const Header = () => {
     <header className="sticky top-0 bg-white z-10 shadow">
       <div className="container mx-auto p-6 flex justify-between">
         <Link href="/" className="text-2xl font-bold text-primary">
-          EasyFashion
+          BlazeWear
         </Link>
         <div className="flex items-center justify-center gap-8">
           <Link href="/search">
