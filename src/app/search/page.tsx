@@ -1,23 +1,21 @@
-'use client'
+"use client";
 import ProductCard from "@/components/ProductCard";
 import { useEffect, useState } from "react";
 import { Product } from "../product/[id]/page";
+import { fetcher } from "@/fetcher";
+import { API_URL } from "@/constants";
 
 const SearchItem = () => {
+  const [search, setSearch] = useState("");
+  const [products, setProducts] = useState<Product[]>([]);
 
-    const [search, setSearch] = useState('');
-    const [products, setProducts] = useState<Product[]>([]);
-
-    useEffect(() => {
-        const getproducts = async() => {
-            const resource = await fetch("https://fakestoreapi.com/products");
-            const products = await resource.json();
-            setProducts(products);
-        }
-        getproducts();
-    },[])
-
-    
+  useEffect(() => {
+    const getproducts = async () => {
+      const resources = await fetcher<Product[]>(API_URL + "/products");
+      setProducts(resources);
+    };
+    getproducts();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -40,21 +38,22 @@ const SearchItem = () => {
         </form>
       </div>
       <main className="flex-grow bg-[#f7f7f7]">
-        <h1 className="text-5xl font-bold text-center mt-12">Search Products:</h1>
+        <h1 className="text-5xl font-bold text-center mt-12">
+          Search Products:
+        </h1>
         <div className="container xl:max-w-screen mx-auto py-12 px-6">
           <div className="grid gap-8 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-            {products.map((product) => (
-              <div key={product.id} >
-                {product.title.toLowerCase().includes(search.toLowerCase()) && (
+            {products.map(
+              (product) =>
+                product.title.toLowerCase().includes(search.toLowerCase()) && (
                   <ProductCard key={product.id} {...product} />
-                )}
-              </div>
-            ))}
+                )
+            )}
           </div>
         </div>
       </main>
     </div>
   );
-}
+};
 
-export default SearchItem
+export default SearchItem;

@@ -9,6 +9,8 @@ import { Product } from "@/app/product/[id]/page";
 import { MdLink, MdShoppingCart } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/redux/slices/cartSlice";
+import { fetcher } from "@/fetcher";
+import { API_URL } from "@/constants";
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -20,9 +22,7 @@ const Modal = () => {
   useEffect(() => {
     async function fetchProduct() {
       setLoading(true);
-      const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const product: Product = await res.json();
-
+      const product = await fetcher<Product>(`${API_URL}/products/${id}`);
       setProduct(product);
       setLoading(false);
     }
@@ -64,7 +64,9 @@ const Modal = () => {
 
               <div className="flex-1 flex flex-col">
                 <div className="flex-1">
-                  <h4 className="font-semibold text-primary text-2xl">{product?.title}</h4>
+                  <h4 className="font-semibold text-primary text-2xl">
+                    {product?.title}
+                  </h4>
                   <p className="font-medium text-sm">${product?.price}</p>
 
                   <div className="flex items-center text-sm my-4">

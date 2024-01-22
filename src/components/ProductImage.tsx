@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 
 interface ProductImageProps {
-    product: any;
-    fill?: any
+  product: any;
+  fill?: any;
 }
 const ProductImage = ({ product, fill }: ProductImageProps) => {
   const [loading, setLoading] = useState(true);
@@ -13,9 +13,10 @@ const ProductImage = ({ product, fill }: ProductImageProps) => {
     <>
       {fill ? (
         <Image
-        alt="product"
+          alt="product"
           src={product.image}
           fill
+          sizes="100px, 100px"
           className={`object-contain duration-700 ease-in-out group-hover:opacity-75
             ${
               loading
@@ -35,7 +36,7 @@ const ProductImage = ({ product, fill }: ProductImageProps) => {
               ? "scale-110 blur-2xl grayscale"
               : "scale-100 blur-0 grayscale-0"
           }`}
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
         />
       )}
     </>

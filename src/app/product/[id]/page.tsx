@@ -1,5 +1,7 @@
 import ProductDetails from "@/components/ProductDetails";
-import { Metadata, ResolvingMetadata } from "next";
+import { API_URL } from "@/constants";
+import { fetcher } from "@/fetcher";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -34,8 +36,7 @@ export type Product = {
 
 const page = async ({ params: { id } }: { params: { id: number } }) => {
   try {
-    const resource = await fetch(`https://fakestoreapi.com/products/${id}`);
-    const product: Product = await resource.json();
+    const product = await fetcher<Product>(`${API_URL}/products/${id}`);
     return <ProductDetails {...product} />;
   } catch (error) {
     notFound();

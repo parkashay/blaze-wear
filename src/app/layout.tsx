@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BlazeWear",
-  description: "Your fashion all at one place.",
+  description: "Your own online supermarket.",
   openGraph: {
     images: ['/cover.jpg']
   }
