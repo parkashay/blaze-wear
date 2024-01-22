@@ -1,5 +1,5 @@
 ## BlazeWear
- A clothing ecommerce
+ An ecommerce frontend demo.
 
 ### Tools Used:
     - Nextjs
